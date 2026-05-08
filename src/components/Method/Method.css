@@ -1,0 +1,92 @@
+.splitSection { background: rgba(255, 255, 255, 0.035); }
+
+.methodLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+}
+
+.painPanel {
+  border-radius: 30px;
+  padding: 36px;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(251, 113, 133, 0.18), transparent 32%),
+    linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.055));
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.painPanel h2 {
+  font-size: 2.35rem;
+  line-height: 1.12;
+  margin-bottom: 18px;
+}
+
+.painPanel p {
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.painList {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+}
+
+.painList li {
+  display: flex;
+  gap: 12px;
+  color: #d7deea;
+}
+
+.painList svg {
+  color: var(--red);
+  flex: 0 0 auto;
+  margin-top: 3px;
+}
+
+.methodGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.methodCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.055));
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  transition: 0.2s ease;
+  padding: 24px;
+}
+
+.methodCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.26);
+}
+
+.methodCard span {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(34, 211, 238, 0.14);
+  color: var(--cyan);
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.methodCard h3 { margin-bottom: 8px; }
+.methodCard p { color: var(--muted); }
+
+@media (max-width: 980px) {
+  .methodLayout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .methodGrid { grid-template-columns: minmax(0, 1fr); }
+  .painPanel, .methodCard { border-radius: 18px; padding: 22px; }
+}

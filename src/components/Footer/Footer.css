@@ -1,0 +1,35 @@
+footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  padding: 28px 0;
+  text-align: center;
+}
+
+.backToTop {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 30;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cyan), var(--blue));
+  color: white;
+  font-size: 1.35rem;
+  font-weight: 900;
+  box-shadow: 0 16px 42px rgba(37, 99, 235, 0.38);
+  transition: 0.2s ease;
+}
+
+.backToTop:hover { transform: translateY(-3px); }
+
+@media (max-width: 640px) {
+  .backToTop {
+    right: 16px;
+    bottom: 16px;
+    width: 46px;
+    height: 46px;
+  }
+}
