@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/soft_quality_tech/static/css/main.26523a03.css",
-    "main.js": "/soft_quality_tech/static/js/main.994bd036.js",
-    "index.html": "/soft_quality_tech/index.html",
-    "main.26523a03.css.map": "/soft_quality_tech/static/css/main.26523a03.css.map",
-    "main.994bd036.js.map": "/soft_quality_tech/static/js/main.994bd036.js.map"
+    "main.css": "/static/css/main.26523a03.css",
+    "main.js": "/static/js/main.994bd036.js",
+    "index.html": "/index.html",
+    "main.26523a03.css.map": "/static/css/main.26523a03.css.map",
+    "main.994bd036.js.map": "/static/js/main.994bd036.js.map"
   },
   "entrypoints": [
     "static/css/main.26523a03.css",
