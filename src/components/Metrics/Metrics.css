@@ -11,7 +11,7 @@
   backdrop-filter: blur(14px);
   border-radius: 22px;
   transition: 0.2s ease;
-  padding: 26px;
+  padding: clamp(22px, 4vw, 26px);
   text-align: center;
 }
 
@@ -22,7 +22,7 @@
 
 .metricCard strong {
   display: block;
-  font-size: 2.2rem;
+  font-size: clamp(1.7rem, 7vw, 2.2rem);
   color: var(--cyan);
   margin-bottom: 6px;
 }
@@ -33,10 +33,14 @@
   font-size: 0.95rem;
 }
 
-@media (max-width: 980px) {
-  .metricsGrid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 1080px) {
+  .metricsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-@media (max-width: 640px) {
-  .metricsGrid { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 620px) {
+  .metricsGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }

@@ -6,19 +6,15 @@
 }
 
 .cta h2 {
-  font-size: clamp(2.1rem, 4vw, 3.6rem);
+  font-size: clamp(1.95rem, 8vw, 3.6rem);
   line-height: 1.1;
   margin-bottom: 16px;
+  letter-spacing: -0.04em;
 }
 
 .cta p {
   max-width: 760px;
   margin: 0 auto 30px;
   color: var(--muted);
-  font-size: 1.1rem;
-}
-
-@media (max-width: 640px) {
-  .cta { padding: 56px 0; }
-  .cta h2 { letter-spacing: -0.8px; }
+  font-size: clamp(1rem, 3vw, 1.1rem);
 }

@@ -1,4 +1,6 @@
-.sectionTitle { margin-bottom: 38px; }
+.sectionTitle {
+  margin-bottom: clamp(28px, 5vw, 38px);
+}
 
 .sectionHead {
   display: flex;
@@ -20,7 +22,7 @@
 
 .sectionTitle h2,
 .centerTitle h2 {
-  font-size: clamp(2rem, 3vw, 3.15rem);
+  font-size: clamp(1.85rem, 7vw, 3.15rem);
   line-height: 1.12;
   letter-spacing: -1.3px;
 }
@@ -28,7 +30,7 @@
 .sectionTitle p {
   color: var(--muted);
   max-width: 580px;
-  font-size: 1.04rem;
+  font-size: clamp(0.98rem, 2.7vw, 1.04rem);
 }
 
 .centerTitle {
@@ -37,8 +39,20 @@
   text-align: center;
 }
 
-.centerTitle p { margin: 12px auto 0; }
+.centerTitle p {
+  margin: 12px auto 0;
+}
 
-@media (max-width: 640px) {
-  .sectionTitle h2 { letter-spacing: -0.8px; }
+@media (max-width: 760px) {
+  .sectionHead {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 14px;
+  }
+
+  .sectionTitle h2,
+  .centerTitle h2 {
+    letter-spacing: -0.8px;
+  }
 }

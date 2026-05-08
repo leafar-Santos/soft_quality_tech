@@ -1,8 +1,8 @@
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 20;
-  background: rgba(5, 8, 22, 0.74);
+  z-index: 50;
+  background: rgba(5, 8, 22, 0.78);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--line);
 }
@@ -12,16 +12,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 28px;
+  gap: 24px;
 }
 
 .logo {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 1.35rem;
+  flex: 0 1 auto;
+  font-size: clamp(1rem, 2.4vw, 1.35rem);
   font-weight: 900;
   letter-spacing: -0.04em;
+  line-height: 1.05;
 }
 
 .logoMark {
@@ -29,6 +31,7 @@
   height: 42px;
   display: grid;
   place-items: center;
+  flex: 0 0 auto;
   border-radius: 14px;
   background: linear-gradient(135deg, var(--cyan), var(--blue), var(--purple));
   color: white;
@@ -37,6 +40,8 @@
 
 .menu {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 26px;
   color: var(--muted);
   font-size: 0.95rem;
@@ -44,13 +49,19 @@
 }
 
 .menu a,
-.navButton { transition: 0.2s ease; }
-.menu a:hover { color: var(--cyan); }
+.navButton {
+  transition: 0.2s ease;
+}
+
+.menu a:hover {
+  color: var(--cyan);
+}
 
 .navButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 auto;
   border-radius: 999px;
   font-weight: 900;
   cursor: pointer;
@@ -58,15 +69,186 @@
   background: linear-gradient(135deg, var(--cyan), var(--blue));
   color: white;
   box-shadow: 0 18px 42px rgba(37, 99, 235, 0.32);
+  text-align: center;
 }
 
-.navButton:hover { transform: translateY(-2px); }
-
-@media (max-width: 980px) {
-  .menu { display: none; }
+.navButton:hover {
+  transform: translateY(-2px);
 }
 
-@media (max-width: 640px) {
-  .navbar { min-height: 68px; }
-  .navButton { display: none; }
+@media (max-width: 1080px) {
+  .navbar {
+    gap: 16px;
+  }
+
+  .menu {
+    gap: 16px;
+    font-size: 0.9rem;
+  }
+
+  .navButton {
+    padding-inline: 16px;
+  }
+}
+
+@media (max-width: 860px) {
+  .navbar {
+    min-height: 68px;
+    position: relative;
+  }
+
+  .logo {
+    max-width: calc(100% - 62px);
+  }
+
+  .logoMark {
+    width: 64px;
+    height: 38px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+  }
+
+  .navButton {
+    display: none;
+  }
+
+  .menu {
+    position: relative;
+    width: 46px;
+    height: 46px;
+    margin-left: auto;
+    flex: 0 0 46px;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .menu::before {
+    content: '☰';
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    color: var(--text);
+    font-size: 1.55rem;
+    line-height: 1;
+    font-weight: 900;
+  }
+
+  .menu a {
+    display: none;
+  }
+
+  .menu:hover,
+  .menu:focus-within,
+  .menu:active {
+    border-color: rgba(34, 211, 238, 0.42);
+    background: rgba(34, 211, 238, 0.10);
+  }
+
+  .menu:hover::before,
+  .menu:focus-within::before,
+  .menu:active::before {
+    color: var(--cyan);
+  }
+
+  .menu:hover a,
+  .menu:focus-within a,
+  .menu:active a {
+    display: flex;
+  }
+
+  .menu:hover,
+  .menu:focus-within,
+  .menu:active {
+    overflow: visible;
+  }
+
+  .menu:hover a,
+  .menu:focus-within a,
+  .menu:active a {
+    position: relative;
+  }
+
+  .menu:hover::after,
+  .menu:focus-within::after,
+  .menu:active::after {
+    content: '';
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: min(82vw, 310px);
+    height: 338px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: rgba(5, 8, 22, 0.96);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(18px);
+    z-index: -1;
+  }
+
+  .menu:hover a,
+  .menu:focus-within a,
+  .menu:active a {
+    position: absolute;
+    right: 16px;
+    width: calc(min(82vw, 310px) - 32px);
+    min-height: 42px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 12px;
+    border-radius: 12px;
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.045);
+    z-index: 2;
+  }
+
+  .menu:hover a:nth-child(1),
+  .menu:focus-within a:nth-child(1),
+  .menu:active a:nth-child(1) { top: 64px; }
+  .menu:hover a:nth-child(2),
+  .menu:focus-within a:nth-child(2),
+  .menu:active a:nth-child(2) { top: 112px; }
+  .menu:hover a:nth-child(3),
+  .menu:focus-within a:nth-child(3),
+  .menu:active a:nth-child(3) { top: 160px; }
+  .menu:hover a:nth-child(4),
+  .menu:focus-within a:nth-child(4),
+  .menu:active a:nth-child(4) { top: 208px; }
+  .menu:hover a:nth-child(5),
+  .menu:focus-within a:nth-child(5),
+  .menu:active a:nth-child(5) { top: 256px; }
+  .menu:hover a:nth-child(6),
+  .menu:focus-within a:nth-child(6),
+  .menu:active a:nth-child(6) { top: 304px; }
+
+  .menu:hover a:hover,
+  .menu:focus-within a:hover,
+  .menu:active a:hover {
+    color: var(--cyan);
+    background: rgba(34, 211, 238, 0.10);
+  }
+}
+
+@media (max-width: 430px) {
+  .logo {
+    gap: 8px;
+    font-size: 0.9rem;
+  }
+
+  .logoMark {
+    width: 56px;
+    height: 36px;
+    font-size: 0.78rem;
+  }
+
+  .menu {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+  }
 }
